@@ -4,9 +4,10 @@ html+css+js+vuejs+django
 # python 环境
 
 # git 同步仓库
-1. git commit -am "初始化" 
-1. git remote add origin git@github.com:Smecta/django-web.git
-1. git push -u origin master
+1. ```git add .``` 
+1. ```git commit -am "初始化"``` 
+1. ```git remote add origin git@github.com:Smecta/django-web.git```
+1. ```git push -u origin master```
 
 # 安装Django框架
 1. ```pip3 install django``` pip 安装django
