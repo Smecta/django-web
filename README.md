@@ -9,17 +9,15 @@ html+css+js+vuejs+django
 1. git push -u origin master
 
 # 安装Django框架
-pip3 install django
+1. ```pip3 install django``` pip 安装django
 
-pip3 install django==2.1 指定版本
+1. ```pip3 install django==2.1``` ==是指定版本安装
 
-python3 
-import django 引入django模块
-django.VERSION 查看django 版本
+1. 命令行或者终端运行 python3 
+   * ```import django``` 引入django模块
+   * ```django.VERSION``` 查看django 版本
 
-开设一个(mysite)项目 
-django-admin startproject mysite 
-cd mysite
-python3 manage.py runserver 运行服务
+2. 开设一个(mysite)项目  ```django-admin startproject mysite``` 
+3. ```cd mysite``` 进入mysite 输入```python3 manage.py runserver``` 运行服务
 
 
