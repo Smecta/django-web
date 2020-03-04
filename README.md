@@ -9,6 +9,7 @@ https://space.bilibili.com/22690066
 # python 环境
 
 # git 同步仓库
+1. 根目录下执行
 1. ```git add .``` 
 1. ```git commit -am "初始化"``` 
 1. ```git remote add origin git@github.com:Smecta/django-web.git```
