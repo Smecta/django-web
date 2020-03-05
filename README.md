@@ -47,3 +47,8 @@ css div 分层找出方法
 
 index 层级
 绝对定位
+
+
+## 合并数据库
+1. 首先制作数据库 ```python3 manage.py makemigrations```
+1. 然后合并数据库 ```python3 manage.py migrate```

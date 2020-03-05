@@ -1,3 +1,18 @@
+html {
+    font-size: 10px;
+}
+.top-menu {
+    background: #000;
+    color: #fff;
+    padding-top: 2rem;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 5rem;
+}
 .top-menu .column {
     text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
 }
