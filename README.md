@@ -2,7 +2,7 @@
 html+css+js+vuejs+django 基于B站UP主九弓子从零开始
 https://space.bilibili.com/22690066
 
-前端：html（肢体） css（配色） js（动效） 
+前端：html css js 
 前后端分离：Vuejs
 后端：Python Django框架
 
@@ -54,11 +54,11 @@ index 层级
 1. 然后合并数据库 ```python3 manage.py migrate```
 
 ## 新建app
-1. python3 manage.py startapp myblog
+1. ```python3 manage.py startapp myblog```
 
 ## 模板
 
-## 路由
+## 路由 (url.py)
 全站可被访问的路径---（网址）
 
 ## Django的MVC渲染方式
