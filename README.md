@@ -52,3 +52,19 @@ index 层级
 ## 合并数据库
 1. 首先制作数据库 ```python3 manage.py makemigrations```
 1. 然后合并数据库 ```python3 manage.py migrate```
+
+## 新建app
+1. python3 manage.py startapp myblog
+
+## 模板
+
+## 路由
+全站可被访问的路径---（网址）
+
+## Django的MVC渲染方式
+M = Model （模型-数据库）
+V = View (视图)
+C = 模板
+
+Django 视图的“上下文对应”
+每一个需要携带进网页视图的内容，都需要上下对应
