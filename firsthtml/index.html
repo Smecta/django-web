@@ -3,29 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的第一个博客</title>
-    <link rel="stylesheet" href="css/semantic.min.css">
+    <title>我的第一个网页</title>
+    <!-- <link rel="stylesheet" href="css/semantic.min.css"> -->
     <link rel="stylesheet" href="css/mystyle.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+
 </head>
 <body>
-    <div class="top-menu">
-        <div class="ui container">
-            <div class="ui four column grid">
-                <div class="column">
-                    首页
-                </div>
-                <div class="column">
-                    Blog
-                </div>
-                <div class="column">
-                    作品
-                </div>
-                <div class="column">
-                    联系
-                </div>
-            </div>
+    <div id="home">
+        <h1>我的第一个网页</h1>
+        <img src="img/admin.jpg" alt="">
+        <hr>
+        <p v-if="movies.length==0">尚未获取</p>
+        <div class="imglist">
+            <img v-for="img in movies" :src="apiurl+img.pic" alt="">
         </div>
+        <button @click="getDate()">获取视频</button>
     </div>
-
+<script>
+    new Vue({
+        el: '#home',
+        data:{
+            apiurl: 'https://api.dweb.club/',
+            movies:[],
+        },
+        methods:{
+            getDate(){
+                let self = this
+                console.log("开始获取")
+                axios({
+                    method: 'get',
+                    url:"https://api.dweb.club/dweb-api/get-index-data",
+                    type:"json",
+                }).then(function(res){
+                    console.log(res.data.newsdata)
+                    self.movies = res.data.newsdata
+                })
+            }
+        },
+    })
+</script>
 </body>
 </html>

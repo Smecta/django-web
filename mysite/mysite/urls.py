@@ -15,7 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from website import views,api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', views.index),
+    path('classes/',views.classes),
+
+    # api接口
+    path('api/',api.api_test),
+    path('get-menu-list/',api.getMenuList),
+    path('get-user-list/',api.getUserList),
+    # path('get-web-title/',api.getWebTitle),
+
+    #用户登录
+    path('login/',api.toLogin),
+    #用户注册
+    path('register/',api.toRegister),
+    #logo上传
+    path('upload-logo/',api.uploadLogo),
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

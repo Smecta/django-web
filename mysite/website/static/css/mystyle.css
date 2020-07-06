@@ -1,0 +1,58 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: slategray;
+}
+#home {
+    width: 700px;
+    height: auto;
+    border: 1px solid #000;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+}
+#home img{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+#home .imglist img{
+    width: 120px;
+    height: 120px;
+    
+}
+#home .header{
+    background: #00000070;
+    border-radius: 10px;
+}
+#home .header h1{
+    color:#fff
+}
+
+#home .content .menu{
+    display: flex;
+    align-content: center;
+    padding: 5px 10px;
+}
+#home .content .menu .item{
+    width: 25%;
+    /* margin-right: 5px; */
+    border: 1px solid #000;
+    border-radius: 10px;
+    height:30px;
+    line-height: 30px;
+}
+#home .content .userlist{
+    min-width: 700px;
+    min-height: 200px;
+    height: auto;
+    border: 1px solid #000;
+    border-radius: 10px;
+    float:left;
+}
+
+#home .content .userlist .user{
+    float:left;
+    margin-left:20px;
+    width: 20%;
+}
