@@ -1,10 +1,10 @@
-# django-web
+# Django-web
 html+css+js+vuejs+django 基于B站UP主九弓子从零开始
 https://space.bilibili.com/22690066
 
-前端：html css js 
-前后端分离：Vuejs
-后端：Python Django框架
+* 前端：html css js 
+* 前后端分离：Vuejs
+* 后端：Python Django框架
 
 # python 环境
 
