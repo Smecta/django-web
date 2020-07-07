@@ -498,6 +498,7 @@ vue ui
 安装插件 axios route vuex
 
 
+
 # 前端页面架设
 根目录下创建 firsthtml 
 

@@ -11,6 +11,7 @@
           <h1>{{siteinfo.sitename}}</h1>
           <img :src="siteinfo.logo" alt="">
       </div>
+      <Test :testName="editName" ></Test>
       <hr>
       <div class="content">
           <div class="menu">
@@ -29,7 +30,7 @@
           <div class="userlist">
               <p>{{ choosed_text }}</p>
               <hr>
-              <router-view @hideBox="hideLoginRegisterBox" @changeUI="changeLoginTye" />
+              <router-view @editName="edittestName" @hideBox="hideLoginRegisterBox" @changeUI="changeLoginTye" />
                          
           </div>
       </div>
@@ -50,10 +51,12 @@
 <script>
 import axios from 'axios'
 import LoginBox from '../src/components/LoginBox'
+import Test from '../src/components/test'
 
 export default {
   components:{
-    LoginBox
+    LoginBox,
+    Test
   },
   data(){
     return{
@@ -63,7 +66,9 @@ export default {
       choosed_text:'Django后端',
       boxtarget:0,
       siteinfo:[],
-      loginType:false
+      loginType:false,
+      //test
+      editName:'',
     }
   },
   mounted(){
@@ -78,6 +83,10 @@ export default {
     this.getMenuList()
   },
   methods:{
+    edittestName(newName){
+      console.log(newName)
+      this.editName = newName
+    },
     toUserinfo(){
       this.$router.push({path:'/userinfo'})
     },
