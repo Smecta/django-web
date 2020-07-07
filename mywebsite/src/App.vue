@@ -3,7 +3,8 @@
     <div> 
       <button v-if="loginType==false" v-on:click="showLoginRegisterBox(1)">登录</button>
       <button v-if="loginType==false" v-on:click="showLoginRegisterBox(2)">注册</button>
-      <button v-if="loginType" >个人中心</button>
+      <button @click="toHome" v-if="loginType" >首页</button>
+      <button @click="toUserinfo" v-if="loginType" >个人中心</button>
       <button v-if="loginType" v-on:click="showLoginRegisterBox(3)">修改</button>
 
       <div class="header">
@@ -28,7 +29,7 @@
           <div class="userlist">
               <p>{{ choosed_text }}</p>
               <hr>
-              <router-view/>
+              <router-view @hideBox="hideLoginRegisterBox" @changeUI="changeLoginTye" />
                          
           </div>
       </div>
@@ -77,6 +78,13 @@ export default {
     this.getMenuList()
   },
   methods:{
+    toUserinfo(){
+      this.$router.push({path:'/userinfo'})
+    },
+    toHome(){
+      this.$router.push({path:'/'})
+    },
+
     // 获取分类列表
     getMenuList(){
       console.log('开始获取分类')
@@ -116,9 +124,13 @@ export default {
       this.boxtarget = value
     },
     // 隐藏父组件 隐藏登录注册框体
-    hideLoginRegisterBox(value){
-      this.boxtarget = value
+    hideLoginRegisterBox(){
+      this.boxtarget = 0
     },
+    changeLoginTye(bool){
+      this.loginType = bool
+    }
+
     // getWebInfo(){
     //   console.log('开始获取网站title')
     //   axios({

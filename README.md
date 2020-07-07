@@ -491,8 +491,11 @@ Django 视图的“上下文对应”
 
 
 
-from rest_framework import serializers
-from rest_framework.response import Response   //返回器
+
+# Vue-cli >4.0 
+启动vuecli ui
+vue ui
+安装插件 axios route vuex
 
 
 # 前端页面架设
@@ -515,3 +518,7 @@ css div 分层找出方法
 
 index 层级
 绝对定位
+
+
+from rest_framework import serializers
+from rest_framework.response import Response   //返回器
