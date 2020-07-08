@@ -1,0 +1,124 @@
+body,html{
+    margin: 0;
+    background: #076585;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #fff, #076585);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #fff, #076585); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.dweb{
+    background: #00000060;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    border-radius: .25rem;
+    
+}
+
+
+/* 头部导航 */
+#top-menu{
+    width: 100vw;
+    height: 60px;
+    /* border: 1px solid #000; */
+    position: fixed;
+    top: 0;
+    z-index: 1001
+}
+
+/* 侧边栏 左 */
+#left-menu{
+    width: 200px;
+    height: 100vh;
+    /* border: 1px solid #000; */
+    position: fixed;
+    z-index: 1001;
+    transition: all 0.3s ease;
+
+}
+#left-menu.xs{
+    margin-left: -200px;
+    transition: all 0.3s ease;
+}
+#left-menu #left-btn {
+    font-size: 40px;
+    color: #E6A23C;
+    position: absolute;
+    left: 220px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+#left-menu #left-btn:hover{
+    color: skyblue;
+}
+
+/* 页面内容 */
+#content{
+    /* height: 1200px; */
+    position: relative;
+    top:60px;
+    margin-left: 220px;
+    margin-right: 20px;
+    padding: 10px 0;
+    /* background: yellowgreen; */
+}
+#content.xs{
+    margin-left: 20px;
+}
+
+/* 页面底部 */
+#footer{
+    color:#fff;
+    font-size:18px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 10px;
+    padding:10px 0;
+}
+
+/* 其他 */
+#left-menu .el-submenu__title:hover {
+    background-color: #00000060 !important;
+}
+
+#left-menu .el-menu-item:hover {
+    background-color: #00000060 !important;
+}
+#left-menu .el-menu {
+    border:none;
+}
+#left-menu .el-menu i{
+    color: #ffd04b;
+}
+
+#content .el-form-item__label{
+    color:#fff;
+}
+#content .el-input input{
+    background: #00000060;
+    color:#fff;
+    border:none;
+}
+
+/* summernote */
+.note-btn{
+    color:#fff
+}
+.note-btn:hover{
+    color:#ffd04b;
+}
+.dropdown-menu {
+    background: #00000060;
+    color:#fff;
+    
+}
+.dropdown-menu a {
+    color: #fff;
+}
+.popover{
+    background: #00000060;
+}
+.note-editable {
+    background: #00000060;
+    color:#fff;
+}

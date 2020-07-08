@@ -11,6 +11,11 @@ Vue.use(VueRouter)
     component: Home
   },
   {
+    path: '/add-article',
+    name: 'AddAriticle',
+    component: () => import(/* webpackChunkName: "about" */ '../views/AddArticle.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -19,6 +24,11 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
+
+const routerPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return routerPush.call(this, location).catch(err=>err)  
+}
 
 const router = new VueRouter({
   routes

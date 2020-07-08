@@ -1,44 +1,111 @@
 <template>
   <div id="app">
-    <el-switch v-model="value" active-color="#13ce66" inactive-color="#ff4949">
-    </el-switch>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- 头部导航 -->
+    <div id="top-menu" class="dweb"></div>
+    <!-- 侧边栏 左 导航 -->
+    <div id="left-menu" :class="'dweb ' + mobile_left">
+      <i @click="showHideLeftMenu" id="left-btn" class="el-icon-menu"></i>
+      <!-- 导航栏 -->
+      <el-col :span="24" sytle="margin-top:80px" >
+        <el-menu
+          class="el-menu-vertical-demo"
+          background-color="#00000000"
+          text-color="#fff"
+          active-text-color="#ffd04b"
+          
+          @select="chooseMenu"
+        >
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-folder-opened"></i>
+              <span>文章管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="/add-article">发布文章</el-menu-item>
+              <el-menu-item index="1-2">文章列表</el-menu-item>
+            </el-menu-item-group>            
+          </el-submenu>
+          <el-menu-item index="2">
+            <i class="el-icon-user"></i>
+            <span slot="title">用户管理</span>
+          </el-menu-item>
+          <el-menu-item index="4">
+            <i class="el-icon-money"></i>
+            <span slot="title">打赏记录</span>
+          </el-menu-item>
+          <el-menu-item index="5">
+            <i class="el-icon-s-operation"></i>
+            <span slot="title">栏目管理</span>
+          </el-menu-item>
+          <el-menu-item index="6">
+            <i class="el-icon-back"></i>
+            <span slot="title">登出</span>
+          </el-menu-item>
+        </el-menu>
+      </el-col>
     </div>
-    <router-view />
+    <!-- 页面内容 -->
+    <div id="content" :class="mobile_content">
+      <router-view></router-view>
+      
+      <div id="footer" class="dweb">
+        版权信息·盗版必究
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        value: true
+export default {
+  data() {
+    return {
+      screenwidth: document.body.clientWidth,
+      mobile_left: "",
+      mobile_content: "",
+    };
+  },
+  mounted() {
+    // window.onresize = () => {
+    //   this.screenwidth = document.body.clientWidth
+    //   console.log(this.screenwidth)
+    // }
+    this.changeDevice();
+  },
+  methods: {
+    chooseMenu(index){
+      console.log(index)
+      this.$router.push({path:index})
+    },
+    changeDevice() {
+      if (this.screenwidth <= 500) {
+        this.mobile_left = "xs";
+        this.mobile_content = "xs";
       }
-    }
-  };
+    },
+    showHideLeftMenu() {
+      if (this.mobile_left == " ") {
+        this.mobile_left = "xs";
+      } else {
+        this.mobile_left = " ";
+      }
+      // 宽屏
+      if (this.screenwidth > 500) {
+        if (this.mobile_content == " ") {
+          this.mobile_content = "xs";
+        } else {
+          this.mobile_content = " ";
+        }
+      }
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+#content .el-col {
+  margin-top: 5px;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#left-menu .el-col {
+  margin-top:80px;
 }
 </style>
