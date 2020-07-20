@@ -122,3 +122,8 @@ body,html{
     background: #00000060;
     color:#fff;
 }
+.el-textarea__inner{
+    background: #00000060;
+    color: #fff;
+    border: none;
+}
