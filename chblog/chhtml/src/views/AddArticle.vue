@@ -83,7 +83,7 @@ export default {
         content : this.article_info.contents,
         cover : this.cover_img
       }
-      axios.post('http://127.0.0.1:9000/api/add-article/',Qs.stringify(ariticle_data))
+      axios.post('http://127.0.0.1:8000/api/add-article/',Qs.stringify(ariticle_data))
       .then(res => {
         console.log(res);
       })

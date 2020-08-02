@@ -5,14 +5,14 @@ from django.contrib.auth.models import User
 
 # 用户信息
 # 头像和昵称
-# class Userinfo(models.Model):
-#     headImg = models.ImageField()
-#     nickName = models.CharField(max_length=50)
-#     # 关联用户 关联User 一对一 
-#     belong = models.OneToOneField(User)
-#     #查询函数为id
-#     def __int__(self):
-#         return self.id
+class Userinfo(models.Model):
+    headImg = models.CharField(null=True,blank=True,max_length=200)
+    nickName = models.CharField(null=True,blank=True,max_length=200)
+    # 关联用户 关联User 一对一 
+    belong = models.OneToOneField(User,on_delete=models.CASCADE,null=True,blank=True)
+    #查询函数为id
+    def __int__(self):
+        return self.id
 
 # # 文章分类
 # class Category(models.Model):

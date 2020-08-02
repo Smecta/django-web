@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -8,12 +9,39 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    beforeEnter: (to, from, next) => {
+      if(store.state.userinfo.token){
+        next()
+      }else{
+        next('/login')
+      }
+    }
+  },
+  // 登录
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+  },
+  //注册
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
   },
   {
     path: '/add-article',
     name: 'AddAriticle',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AddArticle.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/AddArticle.vue'),
+    // 进入之前
+    beforeEnter: (to, from, next) => {
+      if(store.state.userinfo.token){
+        next()
+      }else{
+        next('/login')
+      }
+    } 
   },
   {
     path: '/about',
@@ -33,5 +61,12 @@ VueRouter.prototype.push = function push(location) {
 const router = new VueRouter({
   routes
 })
+
+// 全局路由
+// router.beforeEach((to, from, next) =>{
+//   console.log(to.path);
+//   console.log(from.path);
+//   next()
+// })
 
 export default router

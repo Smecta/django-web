@@ -37,7 +37,7 @@
             <i class="el-icon-s-operation"></i>
             <span slot="title">栏目管理</span>
           </el-menu-item>
-          <el-menu-item index="6">
+          <el-menu-item v-if="authUserLogin" @click="blogLogout()">
             <i class="el-icon-back"></i>
             <span slot="title">登出</span>
           </el-menu-item>
@@ -64,6 +64,24 @@ export default {
       mobile_content: "",
     };
   },
+  computed:{
+    // 验证用户是否登录
+    authUserLogin(){
+      return this.$store.getters.isnotUserlogin
+    }
+  },
+  watch: {
+    // 监听用户token
+    authUserLogin(newVal){
+      console.log(newVal);
+      if (newVal == null ) {
+        this.$router.push({path:"/login"})        
+      }
+    }
+  },
+  created() {
+    this.$store.dispatch('tryAutoLogin')
+  },
   mounted() {
     // window.onresize = () => {
     //   this.screenwidth = document.body.clientWidth
@@ -73,7 +91,7 @@ export default {
   },
   methods: {
     chooseMenu(index){
-      console.log(index)
+      // console.log(index)
       this.$router.push({path:index})
     },
     changeDevice() {
@@ -97,6 +115,10 @@ export default {
         }
       }
     },
+    // 退出登录
+    blogLogout(){
+      this.$store.dispatch('blogLogout',this.$store.getters.isnotUserlogin)
+    }
   },
 };
 </script>
